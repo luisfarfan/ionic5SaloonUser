@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="gradient_div">
+
+      <img src="assets/imgs/gift.png" class="gift_box">
+
+      <ion-label class="bold_lbl" style="margin-top: 20px;">Invite Friends</ion-label>
+      <ion-label class="bold_lbl">Get 3 Coupons each !</ion-label>
+
+      <ion-label style="margin-top: 20px;">When your friend sign up with your referral code, you'll both get 3.0 coupons
+      </ion-label>
+    </div>
+    <div class="simple_div">
+      <ion-label class="head_lbl">Share Your Invite code</ion-label>
+      <ion-input type="text" value="GN5NM7">
+        <ion-icon name="cloud-upload-outline" class='up_icn'></ion-icon>
+      </ion-input>
+
+      <ion-button (click)="goToFriendList()" expand="block">
+        Invite Friends
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

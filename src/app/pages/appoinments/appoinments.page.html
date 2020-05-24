@@ -1,0 +1,20 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <ion-label class="header_lbl">Your Appoinments</ion-label>
+
+    <div class="card_div" *ngFor="let item of data" (click)="goToHistoryDetail()">
+      <ion-label class="salon_name">{{item.name}}</ion-label>
+      <ion-label class="date">{{item.date}}</ion-label>
+      <ion-label [class.pending]="item.status == 'pending'" [class.accepted]="item.status == 'accepted'" [class.canceled]="item.status == 'Canceled'" [class.new]="item.status == 'new'">{{item.status}}</ion-label>
+      <ion-label class="price">$200</ion-label>
+    </div>
+  </div>
+</ion-content>

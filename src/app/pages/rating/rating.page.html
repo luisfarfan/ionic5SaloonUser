@@ -1,0 +1,27 @@
+<ion-content>
+  <div class="main_content_div">
+    <img src="assets/imgs/back.png" class="back_img" (click)="back()">
+
+    <div class="white_div">
+      <div class="user_image" [style.backgroundImage]="'url(assets/imgs/1.jpg)'"></div>
+
+      <div class="content_div">
+
+        <ion-label class="salon_name">Salon Name</ion-label>
+
+        <ion-label class="header_lbl">How is your Experience ? </ion-label>
+
+        <ion-label class="small_lbl">Your feedback will help improve <br> our services</ion-label>
+        <ion-rating [rate]="rate" size="default" (rateChange)="onRateChange($event)">
+        </ion-rating>
+
+        <ion-textarea rows="5"></ion-textarea>
+
+        <ion-button (click)="save()" expand="block">
+          Submit Review
+        </ion-button>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,187 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="secondary">
+    <div class="header_div">
+      <ion-button (click)="close()" slot="start" fill="clear">
+        <ion-icon slot="icon-only" name="close-outline" color="light"></ion-icon>
+      </ion-button>
+      <ion-label>Confirm Booking</ion-label>
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <div class="stepper_div">
+      <div class="div_step">
+        <div class="round_div" (click)="onClick(1)" [class.active_round]="id >= 1">
+          <ion-icon name="checkmark" class="check_icn" [class.active_icn]="id >= 1"></ion-icon>
+        </div>
+        <div class="line_div" [class.active_line]="id >= 1"></div>
+      </div>
+
+      <div class="div_step">
+        <div class="round_div" (click)="onClick(1)" [class.active_round]="id >= 2">
+          <ion-icon name="checkmark" class="check_icn" [class.active_icn]="id >= 2"></ion-icon>
+        </div>
+        <div class="line_div" [class.active_line]="id >= 3"></div>
+      </div>
+
+      <div class="div_step" style="width: 40%;">
+        <div class="round_div" (click)="onClick(3)" [class.active_round]="id >= 3">
+          <ion-icon name="checkmark" class="check_icn" [class.active_icn]="id >= 3"></ion-icon>
+        </div>
+        <div class="line_div2" [class.active_line]="id >= 3"></div>
+        <div class="round_div" (click)="onClick(4)" [class.active_round]="id >= 4">
+          <ion-icon name="checkmark" class="check_icn" [class.active_icn]="id >= 4"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <ion-slides #mySlider [options]="slideOpts">
+
+      <ion-slide>
+        <div class="div_inner_slider">
+          <ion-label class="head_lbl ">Select Date</ion-label>
+
+          <div class="cal_header">
+            <ion-button (click)="back()" fill="clear">
+              <ion-icon slot="icon-only" name="chevron-back" color="secondary" style="font-size: 20px;"></ion-icon>
+            </ion-button>
+            <ion-label class="month_lbl">{{currnetMonth}}</ion-label>
+            <ion-button (click)="next()" fill="clear">
+              <ion-icon slot="icon-only" name="chevron-forward" color="secondary" style="font-size: 20px;"></ion-icon>
+            </ion-button>
+          </div>
+
+          <calendar [monthviewEventDetailTemplate]="template" [calendarMode]="calendar.mode"
+            [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"
+            [markDisabled]="markDisabled">
+          </calendar>
+
+          <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="onslide2()" style="padding-right: 10px;">
+            <ion-fab-button color="secondary">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="div_inner_slider">
+          <ion-label class="head_lbl ">Pick Time</ion-label>
+
+          <div style="margin-top: 50px;">
+
+            <ion-grid>
+              <ion-row class="ion-no-padding">
+                <ion-col [class.booked]="item.status == 1" [class.new_booked]="item.status == 2" size="3.5"
+                  *ngFor="let item of booked" (click)="slotBooking(item)">
+                  {{item.time}}
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          </div>
+
+          <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="onslide2()" style="padding-right: 10px;">
+            <ion-fab-button color="secondary">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="div_inner_slider">
+          <ion-label class="head_lbl">Booking Summary</ion-label>
+          <div class="summary_div">
+            <ion-label>Salon Name</ion-label>
+            <ion-label>316, Eva Surbhi Complex, Aksharwadi Road, Bhavnagar</ion-label>
+            <ion-label class="head_lbl">Services</ion-label>
+            <ion-label class="service_lbl">Hair cutting <span>$ 200</span></ion-label>
+            <ion-label class="service_lbl">Hair colouring <span>$ 400</span></ion-label>
+
+            <ion-label class="head_lbl">Total Price <span>$ 600</span></ion-label>
+          </div>
+
+          <!-- <ion-button class="confirm_btn" (click)="onslide2()" expand="block">
+              Confirm
+            </ion-button> -->
+
+          <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="onslide2()" style="padding-right: 10px;">
+            <ion-fab-button color="secondary">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="div_inner_slider">
+          <ion-label class="head_lbl">Payment Method</ion-label>
+
+          <div class="payment_div">
+
+            <div class="list_div" (click)="choosePayment(1)">
+              <img class="c_image" src="assets/imgs/paypal.png">
+              <ion-label>Paypal</ion-label>
+              <img class="correct_image" src="assets/imgs/correct.png" *ngIf="pay_id == 1">
+            </div>
+
+            <div class="list_div" (click)="choosePayment(2)">
+              <img class="c_image" src="assets/imgs/master.png">
+              <ion-label>Pay with Stripe</ion-label>
+              <img class="correct_image" src="assets/imgs/correct.png" *ngIf="pay_id == 2">
+            </div>
+
+            <div class="list_div" (click)="choosePayment(3)">
+              <img class="c_image" src="assets/imgs/money.png">
+              <ion-label>Cash on Salon</ion-label>
+              <img class="correct_image" src="assets/imgs/correct.png" *ngIf="pay_id == 3">
+            </div>
+
+            <div class="hidden_div" *ngIf="pay_id == 1">
+              <ion-label>Paypal Email</ion-label>
+              <ion-input type="text" placeholder="example@gmail.com"></ion-input>
+            </div>
+
+            <div class="hidden_div" *ngIf="pay_id == 2">
+              <ion-label>Card Number</ion-label>
+              <ion-input type="text" placeholder="XXXX-XXXX-XXXX-4242"></ion-input>
+
+              <div class="expiration">
+                <div style="width: 50%;">
+                  <ion-label class="center_lbl">Epiration Date</ion-label>
+                  <ion-datetime class="small" display-format="MM/YYYY" min="2020-02-25" max="2050-02-31"
+                    placeholder="02/2050"></ion-datetime>
+                </div>
+                <div style="width: 50%;">
+                  <ion-label class="center_lbl">CVV</ion-label>
+                  <ion-input type="tel" class="small" maxlength="3" placeholder="XXX"></ion-input>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <ion-button class="confirm_btn" (click)="onPay()" expand="block">
+            PAY $600
+          </ion-button>
+
+          <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="onslide2()" style="padding-right: 10px;">
+            <ion-fab-button color="secondary">
+              <ion-icon name="arrow-forward"></ion-icon>
+            </ion-fab-button>
+            </ion-fab> -->
+
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
+</ion-content>

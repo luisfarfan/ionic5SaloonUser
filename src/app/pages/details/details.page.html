@@ -1,0 +1,83 @@
+<ion-content>
+  <div class="mainContent">
+    <div class="salonThumb" [style.backgroundImage]="'url(assets/salon/1.jpg)'">
+      <img src="assets/imgs/back.png" class="backBtn" (click)="back()" />
+      <!-- <img src="assets/share.png" class="shareBtn" /> -->
+       <img src="assets/imgs/export.png" class="shareBtn" />
+      <!-- <ion-icon name="share-outline" class="shareBtn"></ion-icon> -->
+      <div class="detailsSection">
+        <h2 class="title"> John Doe Sr's Hair Salon</h2>
+        <p class="subtitle">15 Stylist Staff</p>
+        <div class="ratting">
+          <ion-icon slot="start" [name]="ratting >=1 ? 'star' : 'star-outline'"
+            [color]="ratting >=1 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          <ion-icon slot="start" [name]="ratting >=2 ? 'star' : 'star-outline'"
+            [color]="ratting >=2 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          <ion-icon slot="start" [name]="ratting >=3 ? 'star' : 'star-outline'"
+            [color]="ratting >=3 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          <ion-icon slot="start" [name]="ratting >=4 ? 'star' : 'star-outline'"
+            [color]="ratting >=4 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          <ion-icon slot="start" [name]="ratting >=5 ? 'star' : 'star-outline'"
+            [color]="ratting >=5 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          (149 Reviews)
+        </div>
+      </div>
+
+
+    </div>
+    <div class="segments">
+      <ion-segment [(ngModel)]="feature" (ionChange)="segmentChanged($event)" scrollable color="secondary">
+        <ion-segment-button value="1" mode="md" *ngFor="let item of services">
+          <ion-label>{{item.name}}</ion-label>
+        </ion-segment-button>
+        <!-- <ion-segment-button value="2" mode="md">
+          <ion-label>Service 2</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="3" mode="md">
+          <ion-label>Service 3</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="4" mode="md">
+          <ion-label>Service 4</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="5" mode="md">
+          <ion-label>Service 5</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="6" mode="md">
+          <ion-label>Service 6</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="7" mode="md">
+          <ion-label>Service 7</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="8" mode="md">
+          <ion-label>Service 8</ion-label>
+        </ion-segment-button> -->
+      </ion-segment>
+    </div>
+
+    <div class="serviceList">
+      <div class="card" *ngFor="let item of services" (click)="add(item)">
+        <div class="image_div" [style.backgroundImage]="'url('+ item.image +')'"></div>
+        <div class="desc_div">
+          <ion-label class="heading_lbl">{{item.name}}</ion-label>
+          <ion-label class="small_pricing">starting at <span style="font-weight: 600;">$ {{item.price}}</span></ion-label>
+          <ion-label class="small_pricing">{{item.time}}</ion-label>
+          <img *ngIf="selected.includes(item)" src="assets/imgs/correct.png" class="tick" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<!-- <ion-footer>
+  <ion-button (click)="appoiment()" expand="block" color="secondary">
+    Make Appoinment
+  </ion-button>
+</ion-footer> -->
+
+<ion-footer>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="appoiment()" style="padding-right: 10px;">
+    <ion-fab-button color="secondary">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-footer>

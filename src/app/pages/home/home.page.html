@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-icon slot="start" name="navigate" class="navigate_btn"></ion-icon>
+    <ion-label class="ion-margin-start" (click)="goToMap()">{{address}}</ion-label>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="searchNavigation">
+    <ion-searchbar placeholder="Search store, Stylist or Area" mode="ios" inputmode="text" type="text"
+      (ionChange)="onSearchChange($event)" [debounce]="250" animated></ion-searchbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="3" (click)="openSalon()">
+          <div class="category">
+            <img src="assets/imgs/man.png" alt="" class="cateImage">
+            <p class="cateName">Male</p>
+          </div>
+        </ion-col>
+        <ion-col size="3" (click)="openSalon()">
+          <div class="category">
+            <img src="assets/imgs/makeover.png" alt="" class="cateImage">
+            <p class="cateName">Make Up</p>
+          </div>
+        </ion-col>
+        <ion-col size="3" (click)="openSalon()">
+          <div class="category">
+            <img src="assets/imgs/woman.png" alt="" class="cateImage">
+            <p class="cateName">Female</p>
+          </div>
+        </ion-col>
+        <ion-col size="3" (click)="openSalon()">
+          <div class="category">
+            <img src="assets/imgs/eyebrow.png" alt="" class="cateImage">
+            <p class="cateName">More</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="salonList">
+    <div class="card" *ngFor="let item of salons">
+      <div class="image_div" (click)="openSalon()" [style.backgroundImage]="'url(' +item.image+ ')'"></div>
+      <div class="desc_div" (click)="openSalon()">
+        <ion-label class="heading_lbl">John Doe Sr's Hair Salon</ion-label>
+        <ion-label class="small_lbl"> hair-cutting, colouring and styling.</ion-label>
+        <ion-label class="small_pricing">starting at <span style="font-weight: 600;">$ {{item.price}}</span></ion-label>
+        <div class="ratting">
+          4.9
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

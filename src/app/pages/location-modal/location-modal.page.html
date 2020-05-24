@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Choose Location</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="search_div">
+      <ion-searchbar 
+        placeholder="Why is an exact location better ?" 
+        showCancelButton="never"
+        (ionInput)="onSearchChange1($event)" 
+        autocomplete = "on"
+        showCancelButton="never"
+        mode="ios"
+        [(ngModel)]="autocomplete1.query"
+      >
+      </ion-searchbar>  
+      <img src="assets/imgs/aim.png" class="current_img">
+    </div>
+
+    <ion-list>
+      <ion-item *ngFor="let item of autocompleteItems1" (click)="selectSearchResult1(item)">
+        {{ item }}
+      </ion-item>
+    </ion-list>
+
+  </div>
+</ion-content>

@@ -1,0 +1,61 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" mode="md" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="main_content_div">
+    <div class="salonThumb" [style.backgroundImage]="'url(assets/salon/1.jpg)'">
+
+      <img src="assets/imgs/back.png" class="backBtn" (click)="back()" />
+      
+      <div class="detailsSection">
+        <h2 class="title"> John Doe Sr's Hair Salon</h2>
+        <p class="subtitle">15 Stylist Staff</p>
+        <div class="ratting">
+          <ion-icon slot="start" [name]="ratting >=1 ? 'star' : 'star-outline'"
+            [color]="ratting >=1 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          <ion-icon slot="start" [name]="ratting >=2 ? 'star' : 'star-outline'"
+            [color]="ratting >=2 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          <ion-icon slot="start" [name]="ratting >=3 ? 'star' : 'star-outline'"
+            [color]="ratting >=3 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          <ion-icon slot="start" [name]="ratting >=4 ? 'star' : 'star-outline'"
+            [color]="ratting >=4 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          <ion-icon slot="start" [name]="ratting >=5 ? 'star' : 'star-outline'"
+            [color]="ratting >=5 ?'secondary':'light'" class="rattingIcon"></ion-icon>
+          (149 Reviews)
+        </div>
+      </div>
+    </div>
+
+    <div class="summary_div">
+
+      <div class="flex_div">
+        <ion-icon name="home-outline"></ion-icon><ion-label class="addr_lbl">316, Eva Surbhi Complex, Aksharwadi Road, Bhavnagar</ion-label>
+      </div>
+
+      <div class="flex_div">
+        <ion-icon name="calendar-outline"></ion-icon><ion-label class="addr_lbl">22-Feb-2020</ion-label>
+      </div>
+
+      <div class="flex_div">
+        <ion-icon name="time-outline"></ion-icon><ion-label class="addr_lbl">05:00 PM</ion-label>
+      </div>
+      
+      <ion-label class="head_lbl">Services</ion-label>
+        <ion-label class="service_lbl">Hair cutting <span>$ 200</span></ion-label>
+        <ion-label class="service_lbl">Hair colouring <span>$ 400</span></ion-label>
+
+      <ion-label class="head_lbl">Total Price <span>$ 600</span></ion-label>
+    </div>
+
+    <div class="btn_div">
+      <ion-button (click)="goToRating()">
+        COMPLETED
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

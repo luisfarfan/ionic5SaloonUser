@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-button class="skip_btn" slot="end" (click)="startApp()" fill="clear">
+      Skip
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="bg">
+  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="true" [options]="slideOpts">
+    <ion-slide>
+      <img src="assets/intro/1.png" class="slide-image" />
+      <h2 class="slide-title">
+        Book your<br> favourite stylist
+      </h2>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/intro/2.png" class="slide-image" />
+      <h2 class="slide-title">Get hair dressing <br> at your place</h2>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/intro/3.png" class="slide-image" />
+      <h2 class="slide-title">Select your own <br> brand products</h2>
+    </ion-slide>
+
+
+    <ion-slide>
+      <img src="assets/intro/4.png" class="slide-image" />
+      <h2 class="slide-title">Look like <br> celebrity</h2>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/intro/5.png" class="slide-image" />
+      <h2 class="slide-title">Your childs favourite </h2>
+      <ion-button fill="clear" color="secondary" (click)="startApp()">
+        Continue
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

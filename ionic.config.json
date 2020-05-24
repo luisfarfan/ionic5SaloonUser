@@ -1,0 +1,7 @@
+{
+  "name": "salonUser",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

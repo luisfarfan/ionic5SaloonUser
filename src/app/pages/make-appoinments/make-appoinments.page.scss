@@ -1,0 +1,237 @@
+.header_div{
+    background: var(--ion-color-secondary);
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+
+    ion-button{
+        position: absolute;
+        left: 0;
+        margin: 0;
+    }
+    ion-label {
+        font-weight: 600;
+        font-size: 18px;
+    }
+}
+.main_content_div{
+    width: 100%;
+    .stepper_div{
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .div_step{
+            width: 33%;
+            display: flex;
+            align-items: center;
+
+            .round_div{
+                width: 20px;
+                height: 20px;
+                background: lightgray;
+                border-radius: 50%;
+                position: relative;
+            }
+            .line_div{
+                width: 90%;
+                height: 3px;
+                background: lightgray;
+            }
+            .active_line{
+                background: var(--ion-color-secondary) !important;
+            }
+            .line_div2{
+                width: 65%;
+                height: 3px;
+                background: lightgray;
+            }
+            .check_icn{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                font-size: 15px;
+                color: lightgray;
+            }
+
+            .active_round{
+                background: var(--ion-color-secondary) !important;
+            }
+            .active_icn{
+                color: white;
+            }
+        }
+    }
+
+    .cal_header{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .div_inner_slider{
+        width: 100%;
+        padding: 20px;
+        height: 80vh;
+
+        ion-row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        ion-col{
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            border-radius: 5px;
+            padding: 10px 10px;
+        }
+        .booked{
+            background: lightgray;
+        }
+        .new_booked{
+            background: var(--ion-color-secondary);
+            color: white;
+        }
+
+        .month_lbl{
+            color: black;
+            font-size: 12px;
+        }
+
+        .head_lbl{
+            display: block;
+            text-align: left;
+            font-size: 22px;
+        }
+        .nxt_btn{
+            --background:var(--ion-color-secondary);
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+        }
+        .summary_div{
+            margin-top: 50px;
+            ion-label{
+                display: block;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .service_lbl{
+                padding-bottom: 5px;
+                border-bottom: 1px dashed lightgray;
+            }
+            span{
+                position: absolute;
+                right: 20px;
+                font-weight: 600;
+            }
+        }
+        .add_btn{
+            font-size: 25px;
+            color: var(--ion-color-secondary);
+        }
+        .ip{
+            font-size: 30px;
+        }
+        .simple_lbl{
+            display: block;
+            text-align: center;
+        }
+        .price_lbl{
+            margin-top: 10px;
+            font-size: 40px;
+            display: block;
+            text-align: center;
+        }
+        .ip_lbl{
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            width: 150px;
+            font-size: 40px;
+            margin: auto;
+            margin-top: 10px;
+        }
+        .loc_div{
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--ion-color-secondary);
+        }
+        .agree_btn{
+            color: var(--ion-color-secondary);
+        }
+
+        .confirm_btn{
+            margin-top: 50px;
+            --background: var(--ion-color-secondary);
+            color: white;
+            font-weight: 600;
+            --border-radius: 5px;
+        }
+
+        .payment_div{
+            margin-top: 20px;
+            .list_div{
+                padding: 10px;
+                display: flex;
+                border-radius: 5px;
+                box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+                height: 50px;
+                align-content: center;
+                position: relative;
+                margin-bottom: 10px;
+                .c_image{
+                    width: 25px;
+                    height: 25px;
+                }
+                ion-label{
+                    margin-left: 10px;
+                }
+                .correct_image{
+                    width: 25px;
+                    height: 25px;
+                    position: absolute;
+                    right: 10px;
+                }
+            }
+
+            .hidden_div{
+                margin-top: 20px;
+
+                ion-label{
+                    display: block;
+                    text-align: left;
+                }
+                ion-input,ion-datetime{
+                    border-radius: 5px;
+                    box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+                    margin-top: 10px;
+                }
+
+                .expiration{
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    justify-content: space-around;
+                    margin-top: 20px;
+
+                    .center_lbl{
+                        display: block;
+                        text-align: center;
+                    }
+                    .small{
+                        border-radius: 5px;
+                        box-shadow: none;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

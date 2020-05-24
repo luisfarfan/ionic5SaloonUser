@@ -1,0 +1,106 @@
+<ion-content class="ion-padding">
+  <ion-slides mode="md" [options]="slideOpts">
+    <ion-slide>
+      <ion-button (click)="back()" fill="clear" class="backBtn">
+        <ion-icon slot="start" name="arrow-back-outline" color="secondary"></ion-icon>
+      </ion-button>
+      <div class="emailForm">
+        <h2 class="ion-text-center">Sign Up</h2>
+        <p class="subtitle ion-text-center">Enter your profile detail to <br>access your account </p>
+        <ion-item lines="none">
+          <ion-input type="email" [(ngModel)]="user.email" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-button class="btn_class" color="secondary" (click)="emailValidation()" expand="block">
+          Next
+        </ion-button>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <ion-button (click)="prev()" fill="clear" class="backBtn">
+        <ion-icon slot="start" name="arrow-back-outline" color="secondary"></ion-icon>
+      </ion-button>
+      <div class="emailForm">
+        <h2 class="ion-text-center">Verifications</h2>
+        <p class="subtitle ion-text-center">We sent verification code to your email <span style="color: black;">
+            {{user.email}} </span> </p>
+        <ng-otp-input (onInputChange)="onOtpChange($event)"
+          [config]="{length:4,inputStyles:{'width': '60px','height': '60px'}}">
+        </ng-otp-input>
+        <ion-button class="btn_class" color="secondary" (click)="validateOtp()" expand="block">
+          Verify
+        </ion-button>
+        <ion-button *ngIf="hideResend" (click)="resend()" expand="block" class="resend_btn" fill="clear">
+          Resend
+        </ion-button>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <ion-button (click)="back()" fill="clear" class="backBtn">
+        <ion-icon slot="start" name="arrow-back-outline" color="secondary"></ion-icon>
+      </ion-button>
+      <div class="emailForm">
+        <p class="subtitle ion-text-center">Create Strong Password for your account </p>
+        <ion-item lines="none">
+          <ion-input type="password" [(ngModel)]="user.password" placeholder="Password"></ion-input>
+        </ion-item>
+        <ion-button class="btn_class" color="secondary" (click)="password()" expand="block">
+          Next
+        </ion-button>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <ion-button (click)="back()" fill="clear" class="backBtn">
+        <ion-icon slot="start" name="arrow-back-outline" color="secondary"></ion-icon>
+      </ion-button>
+      <div class="emailForm">
+        <h2 class="ion-text-center">Gender</h2>
+        <ion-grid class="ion-no-margin ion-no-padding">
+          <ion-row>
+            <ion-col size="6">
+              <div class="back_img" (click)="user.gender='male'" [style.backgroundImage]="'url(assets/imgs/male.png)'">
+                <div class="gender" *ngIf="user.gender =='male'"
+                  [style.backgroundImage]="'url(assets/imgs/correct.png)'"></div>
+              </div>
+            </ion-col>
+            <ion-col size="6">
+              <div class="back_img" (click)="user.gender='female'"
+                [style.backgroundImage]="'url(assets/imgs/female.png)'">
+                <div class="gender" *ngIf="user.gender =='female'"
+                  [style.backgroundImage]="'url(assets/imgs/correct.png)'"></div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-button class="btn_class" color="secondary" (click)="password()" expand="block">
+          Next
+        </ion-button>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <ion-button (click)="prev()" fill="clear" class="backBtn">
+        <ion-icon slot="start" name="arrow-back-outline" color="secondary"></ion-icon>
+      </ion-button>
+      <div class="emailForm">
+        <div class="login-logo" (click)="avatar()">
+          <img src="assets/imgs/account.png" class="logo_icon" alt="yoga">
+        </div>
+        <ion-item lines="none">
+          <ion-input type="text" [(ngModel)]="user.first_name" placeholder="First Name"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input type="text" [(ngModel)]="user.last_name" placeholder="Last Name"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input type="number" [(ngModel)]="user.phone" placeholder="Phone Number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea rows="6" [(ngModel)]="user.address" placeholder="Enter Your Address"></ion-textarea>
+        </ion-item>
+        <ion-button class="btn_class" color="secondary" (click)="submit()" expand="block">
+          Submit
+        </ion-button>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

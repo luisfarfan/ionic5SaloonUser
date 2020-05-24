@@ -1,0 +1,99 @@
+.main_content_div{
+    width: 100%;
+
+    .salonThumb{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100% !important;
+        height: 350px !important;  
+        position: relative;
+        .backBtn{
+            position: absolute;
+            top: 40px;
+            left: 16px;
+            width: 30px;
+        }
+        .detailsSection{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            .title{
+                font-weight: bold;
+                font-size: 1.2rem;
+                color: white;
+            }
+            .subtitle{
+                font-size: 1rem;
+                color: white;
+            }
+            .ratting{
+                color: white;
+            }
+            .rattingIcon{
+                font-size: 1.2rem;
+            }
+            .description{
+                font-size: 0.8rem;
+                color: white;
+            }
+
+        }
+    }
+
+    .summary_div{
+        margin-top: 20px;
+        padding: 20px;
+
+        .flex_div{
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+
+            ion-label{
+                margin: 0px;
+                margin-left: 10px;
+            }
+        }
+
+        .head_lbl{
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .addr_lbl{
+            width: 80%;
+        }
+
+        ion-icon{
+            font-size: 25px;
+            color: var(--ion-color-secondary)
+        }
+        ion-label{
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .service_lbl{
+            padding-bottom: 5px;
+            border-bottom: 1px dashed lightgray;
+        }
+        span{
+            position: absolute;
+            right: 20px;
+            font-weight: 600;
+        }
+    }
+
+    .btn_div{
+        margin-top: 30px;
+        text-align: center;
+
+        ion-button{
+            --background: var(--ion-color-secondary);
+            --border-radius: 5px;
+            width: 170px;
+            font-weight: 600;
+        }
+    }
+}

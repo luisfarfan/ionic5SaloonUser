@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-title>History</ion-title> -->
+    <ion-buttons slot="end">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <ion-label class="header_lbl">Your Old Bookings</ion-label>
+
+    <div class="card_div2" *ngFor="let item of [1,2,3,4]" (click)="goToHistoryDetail()">
+
+      <div class="salon_image" [style.backgroundImage]="'url(assets/imgs/1.jpg)'"></div>
+      <div style="padding-left: 10px;">
+        <ion-label class="salon_name">Salon Name</ion-label>
+        <ion-label class="date">19-feb-2020</ion-label>
+        <ion-label class="price">$200</ion-label>
+      </div>
+      
+    </div>
+
+  </div>
+</ion-content>
